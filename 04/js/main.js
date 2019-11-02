@@ -4,7 +4,7 @@ function start() {
     money = +prompt("Ваш бюджет на месяц?", "");
     time = prompt("Введите дату в формате YYYY-MM-DD", "");
 
-    while (isNaN(money) || money == '' || money == null) {
+    while (isNaN(money) || money === 0 || money == null) {
         money = +prompt("Ваш бюджет на месяц?", "");
     }
 }
@@ -24,7 +24,7 @@ function chooseExpenses() {
         let oneQuestions = prompt("Введите обязательную статью расходов в этом месяце", ""),
             twoQuestions = prompt("Во сколько обойдется?", "");
         if (typeof(oneQuestions) === 'string' && typeof(oneQuestions) != null && typeof(twoQuestions) != null
-            && oneQuestions != '' && twoQuestions != '' && oneQuestions.length < 50) {
+            && oneQuestions !== '' && twoQuestions !== '' && oneQuestions.length < 50) {
             console.log("done");
             appData.expenses[oneQuestions] = twoQuestions;
         } else {
@@ -34,26 +34,12 @@ function chooseExpenses() {
 }
 chooseExpenses();
 
-function chooseOptExpenses() {
-    for ( let i = 0 ; i < 3 ; i++ ) {
-        let expenses = prompt("Статья необязательных расходов?", '');
-        if (i == 1) {
-            appData.optionalExpenses[1] = expenses;
-        } else if ( i == 2) {
-            appData.optionalExpenses[2] = expenses;
-        } else {
-            appData.optionalExpenses[3] = expenses;
-        }
-    }
-}
-chooseOptExpenses();
 
 function detectDayBudget() {
     appData.moneyPerDay = (appData.moneyData / 30).toFixed();
+    alert('Ваш бюджет на 1 день: ' + appData.moneyPerDay);
 }
 detectDayBudget();
-
-alert('Ваш бюджет на 1 день: ' + appData.moneyPerDay);
 
 function detectLevel() {
     if ( appData.moneyPerDay < 500 ) {
@@ -69,7 +55,7 @@ function detectLevel() {
 detectLevel();
 
 function checkSavings() {
-    if ( appData.savings == true) {
+    if ( appData.savings === true) {
         let save = +prompt("Какова сумма накоплений?", ''),
             percent = +prompt("Под какой процент?", '');
         appData.monthIncome = save/100/12*percent;
@@ -77,4 +63,11 @@ function checkSavings() {
     }
 }
 checkSavings();
-console.log(appData);
+
+function chooseOptExpenses() {
+    for ( let i = 0 ; i < 3 ; i++ ) {
+        let expenses = prompt("Статья необязательных расходов?", '');
+        appData.optionalExpenses[i] = expenses;
+    }
+}
+chooseOptExpenses();

@@ -14,7 +14,7 @@ for (let i = 0 ; i < 2 ; i++ ) {
     let oneQuestions = prompt("Введите обязательную статью расходов в этом месяце", ""),
         twoQuestions = prompt("Во сколько обойдется?", "");
     if (typeof(oneQuestions) === 'string' && typeof(oneQuestions) != null && typeof(twoQuestions) != null
-        && oneQuestions != '' && twoQuestions != '' && oneQuestions.length < 50) {
+        && oneQuestions !== '' && twoQuestions !== '' && oneQuestions.length < 50) {
         console.log("done");
         appData.expenses[oneQuestions] = twoQuestions;
     } else {
@@ -28,7 +28,7 @@ for (let i = 0 ; i < 2 ; i++ ) {
 //     let oneQuestions = prompt("Введите обязательную статью расходов в этом месяце", ""),
 //         twoQuestions = prompt("Во сколько обойдется?", "");
 //     if (typeof(oneQuestions) === 'string' && typeof(oneQuestions) != null && typeof(twoQuestions) != null
-//         && oneQuestions != '' && twoQuestions != '' && oneQuestions.length < 50) {
+//         && oneQuestions !== '' && twoQuestions !== '' && oneQuestions.length < 50) {
 //         console.log("done");
 //         appData.expenses[oneQuestions] = twoQuestions;
 //     } else {
@@ -42,7 +42,7 @@ for (let i = 0 ; i < 2 ; i++ ) {
 //     let oneQuestions = prompt("Введите обязательную статью расходов в этом месяце", ""),
 //         twoQuestions = prompt("Во сколько обойдется?", "");
 //     if (typeof(oneQuestions) === 'string' && typeof(oneQuestions) != null && typeof(twoQuestions) != null
-//         && oneQuestions != '' && twoQuestions != '' && oneQuestions.length < 50) {
+//         && oneQuestions !== '' && twoQuestions !== '' && oneQuestions.length < 50) {
 //         console.log("done");
 //         appData.expenses[oneQuestions] = twoQuestions;
 //     } else {
