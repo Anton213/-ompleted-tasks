@@ -13,10 +13,10 @@ class Options {
         div.style.cssText = `height: ${this.height}px;
                              width: ${this.width}px;
                              background: ${this.bg};
-                             font-Size: ${this.fontSize}px;
-                             text-Align: ${this.textAlign}`;
+                             font-size: ${this.fontSize}px;
+                             text-align: ${this.textAlign}`;
     }
 }
 
 const square = new Options(234,234,'blue',20,'center');
-console.log(square.calcArea());
+square.calcArea();
